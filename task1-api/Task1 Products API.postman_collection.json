@@ -1,0 +1,11 @@
+{
+  "info": {
+    "_postman_id": "a1619698-5b34-498d-bcd9-b19a366b8b6e",
+    "name": "Task1 Products API",
+    "description": "1. GET All Products  \n    GET → [http://localhost:5000/products](http://localhost:5000/products)\n    \n2. GET Single Product  \n    GET → [http://localhost:5000/products/:id](http://localhost:5000/products/:id)\n    \n3. POST Create Product  \n    POST → [http://localhost:5000/products](http://localhost:5000/products)  \n    Body → { \"name\": \"iPhone 15\", \"price\": 79999, \"stock\": 50 }\n    \n4. PUT Update Product  \n    PUT → [http://localhost:5000/products/:id](http://localhost:5000/products/:id)  \n    Body → { \"name\": \"iPhone 15 Pro\", \"price\": 89999, \"stock\": 40, \"description\": \"Updated\" }\n    \n5. PATCH Partial Update  \n    PATCH → [http://localhost:5000/products/:id](http://localhost:5000/products/:id)  \n    Body → { \"price\": 75000 }\n    \n6. DELETE Product  \n    DELETE → [http://localhost:5000/products/:id](http://localhost:5000/products/:id)\n    \n7. GET Invalid ID (Error Test)  \n    GET → [http://localhost:5000/products/invalidid123](http://localhost:5000/products/invalidid123)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54371023",
+    "_collection_link": "https://go.postman.co/collection/54371023-a1619698-5b34-498d-bcd9-b19a366b8b6e?source=collection_link"
+  },
+  "item": []
+}
