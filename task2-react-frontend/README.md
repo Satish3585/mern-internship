@@ -45,7 +45,7 @@ task2-react-frontend/
 ---
 
 ## ⚙️ Setup & Installation
-git clone [your-github-link]
+git clone https://github.com/Satish3585/mern-internship
 
 cd task2-react-frontend
 
@@ -93,6 +93,6 @@ deleteProduct(id)    → DELETE product
 ---
 
 ## 👨‍💻 Author
-- Name: [Your Name]
+- Name: SATISH R YADAV
 - Internship: InternSpark MERN Stack
 - Task: 2 of 4

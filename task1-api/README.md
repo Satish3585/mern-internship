@@ -38,7 +38,7 @@ task1-api/
 ## ⚙️ Setup & Installation
 
 ### Step 1 — Clone the Repository
-git clone [your-github-repo-link]
+git clone https://github.com/Satish3585/mern-internship
 cd task1-api
 
 ### Step 2 — Install Dependencies
@@ -203,6 +203,6 @@ into Postman to test all endpoints directly.
 ---
 
 ## 👨‍💻 Author
-- Name: [Your Name]
+- Name: SATISH R YADAV
 - Internship: InternSpark MERN Stack
 - Task: 1 of 4
