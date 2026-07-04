@@ -1,26 +1,61 @@
 import { Link } from 'react-router-dom'
 
-function ProductCard({ product, onDelete }) {
+// function ProductCard({ product, onDelete }) {
+//   return (
+//     <div style={styles.card}>
+//       <h3>{product.name}</h3>
+//       <p>Price: ₹{product.price}</p>
+//       <p>Stock: {product.stock}</p>
+//       {product.description && <p>{product.description}</p>}
+
+//       <div style={styles.buttons}>
+//         {/* Link to edit page with product id */}
+//         <Link to={`/edit/${product._id}`} style={styles.editBtn}>
+//           Edit
+//         </Link>
+
+//         {/* Delete button calls function passed from parent */}
+//         <button
+//           onClick={() => onDelete(product._id)}
+//           style={styles.deleteBtn}
+//         >
+//           Delete
+//         </button>
+//       </div>
+//     </div>
+//   )
+// }
+function ProductCard({ product, onDelete, isLoggedIn }) {
   return (
     <div style={styles.card}>
-      <h3>{product.name}</h3>
-      <p>Price: ₹{product.price}</p>
-      <p>Stock: {product.stock}</p>
-      {product.description && <p>{product.description}</p>}
+      <img
+        src={product.image || 'https://via.placeholder.com/250x180?text=No+Image'}
+        alt={product.name}
+        style={styles.image}
+      />
+      <div style={styles.content}>
+        <h3 style={styles.title}>{product.name}</h3>
+        <p style={styles.price}>₹{product.price}</p>
+        <p style={styles.stock}>Stock: {product.stock}</p>
+        {product.description && (
+          <p style={styles.description}>{product.description}</p>
+        )}
 
-      <div style={styles.buttons}>
-        {/* Link to edit page with product id */}
-        <Link to={`/edit/${product._id}`} style={styles.editBtn}>
-          Edit
-        </Link>
+        {/* Only show Edit/Delete if logged in */}
+        {isLoggedIn && (
+          <div style={styles.buttons}>
+            <Link to={`/edit/${product._id}`} style={styles.editBtn}>
+              Edit
+            </Link>
+            <button
+              onClick={() => onDelete(product._id)}
+              style={styles.deleteBtn}
+            >
+              Delete
+            </button>
+          </div>
+        )}
 
-        {/* Delete button calls function passed from parent */}
-        <button
-          onClick={() => onDelete(product._id)}
-          style={styles.deleteBtn}
-        >
-          Delete
-        </button>
       </div>
     </div>
   )

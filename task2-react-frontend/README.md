@@ -96,3 +96,17 @@ deleteProduct(id)    → DELETE product
 - Name: SATISH R YADAV
 - Internship: InternSpark MERN Stack
 - Task: 2 of 4
+
+---
+
+## 🔐 Authentication (Task 3)
+
+### Features Added
+- Login page with JWT authentication
+- Signup page for new users
+- Protected routes (redirect to login if not authenticated)
+- Token stored in localStorage (persists on refresh)
+- Navbar shows login/logout based on auth state
+- Edit/Delete buttons hidden when not logged in
+
+### Protected Pages

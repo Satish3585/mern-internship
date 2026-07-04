@@ -20,6 +20,12 @@ app.use(morgan('dev'))                      // ← ADD THIS
 const productRoutes = require('./routes/productRoutes')
 app.use('/products', productRoutes)
 
+// Add this with other route imports
+const authRoutes = require('./routes/authRoutes')
+app.use('/api/auth', authRoutes)
+
+// Add this with other app.use() routes
+app.use('/api/auth', authRoutes)
 app.get('/', (req, res) => {
   res.json({ message: 'Products API is running! 🚀' })
 })

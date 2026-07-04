@@ -3,23 +3,39 @@ import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import AddProductPage from './pages/AddProductPage'
 import EditProductPage from './pages/EditProductPage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 
 function App() {
   return (
-    // BrowserRouter → enables routing in our app
     <BrowserRouter>
-
-      {/* Navbar shows on every page */}
       <Navbar />
-
-      {/* Routes → defines which component shows at which URL */}
       <Routes>
-        <Route path="/"        element={<HomePage />} />
-        <Route path="/add"     element={<AddProductPage />} />
-        <Route path="/edit/:id" element={<EditProductPage />} />
-      </Routes>
 
+        {/* PUBLIC routes — anyone can access */}
+        <Route path="/"       element={<HomePage />} />
+        <Route path="/login"  element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+
+        {/* PROTECTED routes — only logged-in users */}
+        <Route path="/add"
+          element={
+            <ProtectedRoute>
+              <AddProductPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditProductPage />
+            </ProtectedRoute>
+          }
+        />
+
+      </Routes>
     </BrowserRouter>
   )
 }

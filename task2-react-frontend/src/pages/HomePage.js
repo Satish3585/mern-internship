@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { getAllProducts, deleteProduct } from '../services/productService'
 import ProductCard from '../components/ProductCard'
+import { useAuth } from '../context/AuthContext'    // ← NEW
 
 function HomePage() {
 
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const { isLoggedIn } = useAuth()                 // ← NEW
 
   useEffect(() => {
     fetchProducts()
@@ -25,16 +27,11 @@ function HomePage() {
     }
   }
 
-  // Handle delete click
   const handleDelete = async (id) => {
-    // Ask for confirmation before deleting
     const confirmDelete = window.confirm('Are you sure you want to delete this product?')
-
     if (!confirmDelete) return
-
     try {
       await deleteProduct(id)
-      // Remove deleted product from state (no need to refetch!)
       setProducts(products.filter((product) => product._id !== id))
     } catch (err) {
       alert('Failed to delete product')
@@ -50,8 +47,8 @@ function HomePage() {
   }
 
   return (
-    <div style={{ padding: '30px' }}>
-      <h2>All Products</h2>
+    <div style={{ padding: '30px', backgroundColor: '#f5f6fa', minHeight: '100vh' }}>
+      <h2 style={{ marginBottom: '20px', color: '#2c3e50' }}>All Products</h2>
 
       {products.length === 0 && <p>No products found!</p>}
 
@@ -61,6 +58,7 @@ function HomePage() {
             key={product._id}
             product={product}
             onDelete={handleDelete}
+            isLoggedIn={isLoggedIn}    // ← NEW
           />
         ))}
       </div>

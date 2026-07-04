@@ -206,3 +206,30 @@ into Postman to test all endpoints directly.
 - Name: SATISH R YADAV
 - Internship: InternSpark MERN Stack
 - Task: 1 of 4
+
+---
+
+## 🔐 Authentication (Task 3)
+
+JWT-based authentication added to protect 
+sensitive API endpoints.
+
+### Auth Endpoints
+| Method | Endpoint | Description | Access |
+|--------|----------|-------------|--------|
+| POST | /api/auth/signup | Register new user | Public |
+| POST | /api/auth/login | Login user | Public |
+| GET | /api/auth/me | Get current user | Protected |
+
+### Protected Product Endpoints
+| Method | Endpoint | Access |
+|--------|----------|--------|
+| GET | /products | Public |
+| GET | /products/:id | Public |
+| POST | /products | 🔒 Requires JWT |
+| PUT | /products/:id | 🔒 Requires JWT |
+| PATCH | /products/:id | 🔒 Requires JWT |
+| DELETE | /products/:id | 🔒 Requires JWT |
+
+### How to Use Protected Routes
+Add this header to protected requests:

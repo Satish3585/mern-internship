@@ -10,11 +10,16 @@ const {
   deleteProduct
 } = require('../controllers/productController')
 
-router.get('/',        getAllProducts)
-router.get('/:id',     getProductById)
-router.post('/',       createProduct)
-router.put('/:id',     updateProduct)
-router.patch('/:id',   patchProduct)    // ← NEW (required!)
-router.delete('/:id',  deleteProduct)
+const { protect } = require('../middleware/authMiddleware')   // ← ADD THIS
+
+// PUBLIC routes — anyone can view
+router.get('/',     getAllProducts)
+router.get('/:id',  getProductById)
+
+// PROTECTED routes — only logged-in users
+router.post('/',       protect, createProduct)    // ← added protect
+router.put('/:id',     protect, updateProduct)    // ← added protect
+router.patch('/:id',   protect, patchProduct)     // ← added protect
+router.delete('/:id',  protect, deleteProduct)    // ← added protect
 
 module.exports = router
